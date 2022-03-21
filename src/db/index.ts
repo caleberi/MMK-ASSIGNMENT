@@ -5,7 +5,7 @@ import { DataSource,DataSourceOptions } from "typeorm";
 
 const options: DataSourceOptions = {
     "type": "postgres",
-    "url":process.env.DATABASE_URL,
+    "url":process.env.DATABASE_URL||process.env.HEROKU_POSTGRESQL,
     "synchronize": process.env.NODE_ENV==="production"?false:true,
     "logging": process.env.NODE_ENV==="production"?false:true,
     "entities": [
