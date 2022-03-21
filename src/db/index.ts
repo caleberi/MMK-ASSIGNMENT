@@ -10,7 +10,7 @@ const options: DataSourceOptions = {
     "logging": process.env.NODE_ENV==="production"?false:true,
     "entities": [
         "src/entity/**/*.{ts,js}",
-        join(__dirname, '..', 'src/entity/', '**', '*{.ts,.js}')
+        join(__dirname,'src/entity/', '**', '*{.ts,.js}')
     ],
     "migrations": [
        "src/migration/**/*.{ts,js}"
