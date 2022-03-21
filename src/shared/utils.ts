@@ -74,12 +74,3 @@ export const payloadCheck = function(from:string|any,to:string|any,text:string|a
     }
 }
 
-export const readSqlFile = (filepath: string): string[]|string => {
-    return fs
-      .readFileSync(path.join(__dirname, filepath))
-      .toString()
-      .replace(/\r?\n|\r/g, '')
-      .replace(/\t/g, ' ')
-      .split(';')
-      .filter((query) => query?.length);
-  };

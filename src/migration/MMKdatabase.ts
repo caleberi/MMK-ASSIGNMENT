@@ -1,6 +1,15 @@
-import { readSqlFile } from "@shared/utils";
 import { MigrationInterface, QueryRunner } from "typeorm"
-
+import fs from "fs";
+import path from "path";
+ const readSqlFile = (filepath: string): string[]|string => {
+  return fs
+    .readFileSync(path.join(__dirname, filepath))
+    .toString()
+    .replace(/\r?\n|\r/g, '')
+    .replace(/\t/g, ' ')
+    .split(';')
+    .filter((query) => query?.length);
+};
 export class MMKdatabase16778244518798 implements MigrationInterface {
 
     async down(queryRunner: QueryRunner): Promise<any> {
