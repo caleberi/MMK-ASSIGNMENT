@@ -63,6 +63,7 @@
     "build.ts"
   ],
   "dependencies": {
+    "ts-node": "^10.7.0",
     "@types/debug": "^4.1.7",
     "@types/ioredis": "^4.28.9",
     "@types/joi": "^17.2.3",
