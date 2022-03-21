@@ -45,7 +45,7 @@ Run `npm run make:serve` to start the local server.
 
 check the `package.json` for more reference.
 ## API Reference/Documentation
-A swagger documentation can be found at `http://localhost:3000/docs`
+A swagger documentation can be found at `http://localhost:3000/docs` or `https://mmk-assignment.herokuapp.com/docs/`
 ## Authors
 
 **[Adewole Caleb](https://github.com/caleberi)**
