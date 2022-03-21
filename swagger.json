@@ -1,0 +1,107 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a simple server for resolving sms messages",
+    "version": "1.0.0",
+    "title": "MMK-assigment as a service"
+  },
+  "host": "metaworker.herokuapp.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "FFProbe",
+      "description": "Get your metadata easily.",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://github.com/caleberi/MMK-ASSIGNMENT"
+      }
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/inbound/sms": {
+      "post": {
+        "tags": [
+          "convert"
+        ],
+        "summary": "Get the result of the inbound sms",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "from": "body",
+            "description": "<from> phone number to use",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OutPutPayload"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/outbound/sms": {
+      "post": {
+        "tags": [
+          "convert"
+        ],
+        "summary": "Get the result of the inbound sms",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "from": "body",
+            "description": "<from> phone number to use",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OutPutPayload"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "InputPayload": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "example": "Dive in to find programs that help you immerse yourself in Google’s culture and work, prepare you for a future in business or computer science, and more."
+        },
+        "to": {
+          "type": "string",
+          "example": "893492828988"
+        }
+      }
+    }
+  }
+}

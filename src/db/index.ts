@@ -2,26 +2,29 @@
 import logger from "jet-logger";
 import { DataSource,DataSourceOptions } from "typeorm";
 
-const options = {
+const options: DataSourceOptions = {
     "type": "postgres",
-    "port": process.env.DB_PORT||5432,
-    "username": process.env.DB_USERNAME||"postgres",
-    "password": process.env.DB_PASSWORD||"postgres",
-    "database": process.env.DB_NAME||"postgres",
+    "url":process.env.DATABASE_URL,
     "synchronize": process.env.NODE_ENV==="production"?false:true,
     "logging": process.env.NODE_ENV==="production"?false:true,
     "entities": [
-       "src/entity/**/*.{ts,js}"
+       "src/entity/**/*.{ts,js}",
+       "dist/src/entity/**/*.js"
     ],
     "migrations": [
        "src/migration/**/*.{ts,js}"
-    ]
+    ],
+    "cli": {
+        "entitiesDir":"src/entity",
+        "migrationsDir": "src/migration"
+    }
  }
-const dataSource =  new DataSource(<DataSourceOptions>options);
+const dataSource =  new DataSource(options);
 
 dataSource
     .initialize()
-    .then(() => {
+    .then(async (connection) => {
+        await connection.runMigrations();
         logger.info("Data Source has been initialized!")
     })
     .catch((err) => {

@@ -9,18 +9,12 @@ SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
---
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
---
+
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
---
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+-- COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 SET search_path = public, pg_catalog;
@@ -29,9 +23,8 @@ SET default_tablespace = '';
 
 SET default_with_oids = false;
 
---
--- Name: account; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
+DROP TABLE IF EXISTS account,phone_number,typeorm_metadata;
+
 
 CREATE TABLE account (
     id integer NOT NULL,
@@ -42,9 +35,7 @@ CREATE TABLE account (
 
 ALTER TABLE public.account OWNER TO postgres;
 
---
--- Name: account_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
+
 
 CREATE SEQUENCE account_id_seq
     START WITH 1
@@ -56,16 +47,11 @@ CREATE SEQUENCE account_id_seq
 
 ALTER TABLE public.account_id_seq OWNER TO postgres;
 
---
--- Name: account_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
+
 
 ALTER SEQUENCE account_id_seq OWNED BY account.id;
 
 
---
--- Name: phone_number; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
 
 CREATE TABLE phone_number (
     id integer NOT NULL,
@@ -76,9 +62,7 @@ CREATE TABLE phone_number (
 
 ALTER TABLE public.phone_number OWNER TO postgres;
 
---
--- Name: phone_number_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
+
 
 CREATE SEQUENCE phone_number_id_seq
     START WITH 1
@@ -90,30 +74,20 @@ CREATE SEQUENCE phone_number_id_seq
 
 ALTER TABLE public.phone_number_id_seq OWNER TO postgres;
 
---
--- Name: phone_number_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
+
 
 ALTER SEQUENCE phone_number_id_seq OWNED BY phone_number.id;
 
 
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
---
 
 ALTER TABLE ONLY account ALTER COLUMN id SET DEFAULT nextval('account_id_seq'::regclass);
 
 
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
---
+
 
 ALTER TABLE ONLY phone_number ALTER COLUMN id SET DEFAULT nextval('phone_number_id_seq'::regclass);
 
 
---
--- Data for Name: account; Type: TABLE DATA; Schema: public; Owner: postgres
---
 
 COPY account (id, auth_id, username) FROM stdin;
 1	20S0KPNOIM	azr1
@@ -124,16 +98,12 @@ COPY account (id, auth_id, username) FROM stdin;
 \.
 
 
---
--- Name: account_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
+
 
 SELECT pg_catalog.setval('account_id_seq', 5, true);
 
 
---
--- Data for Name: phone_number; Type: TABLE DATA; Schema: public; Owner: postgres
---
+
 
 COPY phone_number (id, number, account_id) FROM stdin;
 1	4924195509198	1
@@ -218,46 +188,30 @@ COPY phone_number (id, number, account_id) FROM stdin;
 \.
 
 
---
--- Name: phone_number_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
 
 SELECT pg_catalog.setval('phone_number_id_seq', 79, true);
 
 
---
--- Name: account_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
 
 ALTER TABLE ONLY account
     ADD CONSTRAINT account_pkey PRIMARY KEY (id);
 
 
---
--- Name: phone_number_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
 ALTER TABLE ONLY phone_number
     ADD CONSTRAINT phone_number_pkey PRIMARY KEY (id);
 
 
---
--- Name: phone_number_account_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
 
 ALTER TABLE ONLY phone_number
     ADD CONSTRAINT phone_number_account_id_fkey FOREIGN KEY (account_id) REFERENCES account(id);
 
 
---
--- Name: public; Type: ACL; Schema: -; Owner: postgres
---
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
 REVOKE ALL ON SCHEMA public FROM postgres;
 GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
-
+\
 
 --
 -- PostgreSQL database dump

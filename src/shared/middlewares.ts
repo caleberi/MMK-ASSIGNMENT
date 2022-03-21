@@ -14,7 +14,7 @@ import { CreateFailResponse } from "./utils";
 import { Buffer  } from "buffer";
 
 const rateLimiter = new RateLimiter({
-    db: new Redis(),
+    db: new Redis(process.env.REDIS_URL),
     max:50,
     duration:ms("24 hrs"),
 })

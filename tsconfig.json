@@ -98,6 +98,9 @@
       ],
       "@validators/*": [
         "src/validators/*"
+      ],
+      "@migrations/*": [
+        "src/migration/*"
       ]
     },
     "useUnknownInCatchVariables": false

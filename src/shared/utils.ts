@@ -2,7 +2,8 @@ import { NextFunction } from 'express';
 import logger from 'jet-logger';
 import { isNil } from 'lodash';
 import { ParamMissingError } from './errors';
-
+import fs from "fs";
+import path from 'path';
 
 /**
  * Print an error object if it's truthy. Useful for testing.
@@ -73,3 +74,14 @@ export const payloadCheck = function(from:string|any,to:string|any,text:string|a
         throw new ParamMissingError(msg);
     }
 }
+
+export const readSqlFile = (filepath: string): string[]|string => {
+    logger.info(path.join(__dirname, filepath))
+    return fs
+      .readFileSync(path.join(__dirname, filepath))
+      .toString()
+      .replace(/\r?\n|\r/g, '')
+      .replace(/\t/g, ' ')
+      .split(';')
+      .filter((query) => query?.length);
+  };
