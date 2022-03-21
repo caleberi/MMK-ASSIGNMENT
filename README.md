@@ -21,20 +21,32 @@ The project folder directory is divided into
 
 ## Running this project
 ---
-I could not use docker during development due some issues . So, you would have to run locally.
-This involves cloning this repository, so go ahead with that first.
+I could not use docker during development due some issues . So, you would have to run locally.This involves cloning this repository, so go ahead with that first.
 
-### Running the service 
-- Running the client-app: Navigate into the client directory and run
+## Local Environment
+---
+Foremost, you have to clone this repository and install all the dependencies with the following commands.
 ```bash
-  $ yarn install 
-```
-- Build the project 
-```bash
-  $ npm run build
-```
-- Running the server :
-```bash
-  $ npm run start
-```
+git clone https://github.com/caleberi/MMK-ASSIGNMENT.git
+cd MMK-ASSIGNMENT
+npm install
 
+```
+Rename the `src/config.env.example` to `.env` and customize it to your local machines specifications.
+**Note**: `DATABASE_URL` will not be created automatically and would need to ba manually created.
+
+Run `npm run make:serve` to start the local server.
+
+### NPM scripts
+
+- `npm run build`: Run build
+- `npm run lint`: To  lint the project
+- `npm run start`: Run the project locally
+
+check the `package.json` for more reference.
+## API Reference/Documentation
+A swagger documentation can be found at `http://localhost:3000/docs`
+## Authors
+
+**[Adewole Caleb](https://github.com/caleberi)**
+        

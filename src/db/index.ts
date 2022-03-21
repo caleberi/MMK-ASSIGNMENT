@@ -24,7 +24,7 @@ const dataSource =  new DataSource(options);
 dataSource
     .initialize()
     .then(async (connection) => {
-        await connection.runMigrations();
+        // await connection.runMigrations();
         logger.info("Data Source has been initialized!")
     })
     .catch((err) => {

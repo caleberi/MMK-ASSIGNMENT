@@ -8,8 +8,17 @@ import logger from 'jet-logger';
 import { CustomError } from '@shared/errors';
 import "reflect-metadata";
 import { CreateFailResponse } from '@shared/utils';
-
+import swaggerUI from "swagger-ui-express";
+import   fs from "fs";
+import { join } from 'path';
 const app = express();
+
+
+const swaggerDocument = JSON.parse(fs.readFileSync(join(__dirname,"../swagger.json"),"utf8"))
+
+var options = {
+  customCss: '.swagger-ui .topbar { display: none }'
+};
 
 
 app.use(express.json());
@@ -29,6 +38,7 @@ function ping(_: Request, res: Response){
     res.json({"message":"Pinged!!!"});
 }
 
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument, options));
 app.get('/ping', ping);
 
 app.use('/',apiRouter());
