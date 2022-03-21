@@ -1,4 +1,3 @@
-import { NextFunction } from 'express';
 import logger from 'jet-logger';
 import { isNil } from 'lodash';
 import { ParamMissingError } from './errors';
@@ -76,7 +75,6 @@ export const payloadCheck = function(from:string|any,to:string|any,text:string|a
 }
 
 export const readSqlFile = (filepath: string): string[]|string => {
-    logger.info(path.join(__dirname, filepath))
     return fs
       .readFileSync(path.join(__dirname, filepath))
       .toString()
