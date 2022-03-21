@@ -2,7 +2,7 @@ import {NextFunction, Request, Response} from "express";
 import {CreateSuccessResponse, matchGivenWordArray, payloadCheck} from "@shared/utils";
 import {SMSSchema} from "@validators/smsSchema";
 import dataSource from "@db/index";
-import {Phone} from "@entity/phone";
+import {Phone} from "@entity/phone.entity";
 import logger from "jet-logger";
 import {isNil} from "lodash";
 import {ParamMissingError, PhoneNotFoundError, UnknownError} from "@shared/errors";

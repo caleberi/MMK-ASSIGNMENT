@@ -5,7 +5,7 @@ import cache from "@cache/redis";
 import {isNil} from "lodash";
 import {FoundInCacheError, PhoneNotFoundError} from "@shared/errors";
 import dataSource from "@db/index";
-import {Phone} from "@entity/phone";
+import {Phone} from "@entity/phone.entity";
 import {StatusCodes} from "http-status-codes";
 
 export const checkOutBoundSMS = async function(req: Request,res: Response,next:NextFunction){

@@ -1,7 +1,7 @@
 import { NextFunction ,Request,Response} from "express";
 import {isNil} from "lodash";
 import { MethodNotSupportedError, UnauthorizedError} from "@shared/errors";
-import {Account} from "@entity/account";
+import {Account} from "@entity/account.entity";
 import { StatusCodes } from "http-status-codes";
 import ms from "ms";
 
