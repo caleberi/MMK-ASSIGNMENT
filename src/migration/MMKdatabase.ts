@@ -17,10 +17,10 @@ export class MMKdatabase16778244518798 implements MigrationInterface {
     }
 
      async up(queryRunner: QueryRunner): Promise<void> {
-      const queries = readSqlFile('../../schema.sql');
-      for (let i = 0; i < queries.length; i++) {
-        console.log("[Running query]: ",queries[i]);
-        await queryRunner.query(queries[i]+";");
-      }
+      // // const queries = readSqlFile('../../schema.sql');
+      // for (let i = 0; i < queries.length; i++) {
+      //   console.log("[Running query]: ",queries[i]);
+      //   await queryRunner.query(queries[i]+";");
+      // }
     }
 }
