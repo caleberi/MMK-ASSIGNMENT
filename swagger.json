@@ -5,11 +5,11 @@
     "version": "1.0.0",
     "title": "MMK-assigment as a service"
   },
-  "host": "metaworker.herokuapp.com",
+  "host": "https://mmk-assignment.herokuapp.com",
   "basePath": "/",
   "tags": [
     {
-      "name": "FFProbe",
+      "name": "MMK-assigment",
       "description": "Get your metadata easily.",
       "externalDocs": {
         "description": "Find out more",
@@ -25,7 +25,8 @@
     "/inbound/sms": {
       "post": {
         "tags": [
-          "convert"
+          "inbound",
+          "sms"
         ],
         "summary": "Get the result of the inbound sms",
         "description": "",
@@ -58,7 +59,8 @@
     "/outbound/sms": {
       "post": {
         "tags": [
-          "convert"
+          "outbound",
+          "sms"
         ],
         "summary": "Get the result of the inbound sms",
         "description": "",
