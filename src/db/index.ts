@@ -12,7 +12,7 @@ const options: DataSourceOptions = {
         "dist/entity/**/*.{ts,js}"
     ],
     "migrations": [
-       "src/migration/**/*.{ts,js}"
+       "dist/migration/**/*.{ts,js}"
     ],
     "cli": {
         "entitiesDir":"src/entity",
