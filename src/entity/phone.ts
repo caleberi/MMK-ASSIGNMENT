@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToOne } from "typeorm";
-import { Account } from "./account.entity";
+import { Account } from "./account";
 
 
 @Entity("phone_number")
