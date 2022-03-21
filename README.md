@@ -6,7 +6,6 @@
 You can get the shared collection file via [postman](https://www.getpostman.com/collections/04990c94f1aa44edae01).
 Taking a stern look into the problem statement provided by the mymoneykarma interviewer. I was told to build an application that support caching , rate-limiting and almost others .
 
-Sellers can also create products for each stores.
 This project uses `typescript` since it is easier to manage compared to `javascript`.
 Technologies used:
 
