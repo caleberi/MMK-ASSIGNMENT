@@ -1,5 +1,6 @@
 
 import logger from "jet-logger";
+import { join } from "path";
 import { DataSource,DataSourceOptions } from "typeorm";
 
 const options: DataSourceOptions = {
@@ -8,7 +9,8 @@ const options: DataSourceOptions = {
     "synchronize": process.env.NODE_ENV==="production"?false:true,
     "logging": process.env.NODE_ENV==="production"?false:true,
     "entities": [
-        "src/**/*.entity.{ts,js}"
+        "src/entity/**/*.{ts,js}",
+        join(__dirname, '..', 'src/entity/', '**', '*{.ts,.js}')
     ],
     "migrations": [
        "src/migration/**/*.{ts,js}"
