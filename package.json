@@ -4,9 +4,10 @@
   "scripts": {
     "build": "./node_modules/.bin/ts-node build.ts",
     "lint": "eslint . --ext .ts",
-    "start": "nodemon",
+    "start": "node -r module-alias/register ./dist --env=production",
+    "start:dev": "nodemon",
     "test": "nodemon --config ./spec/nodenomon.json",
-    "test:no-reloading": "./node_modules/.bin/ts-node -r tsconfig-paths/register ./spec --env=production "
+    "test:no-reloading": "./node_modules/.bin/ts-node -r tsconfig-paths/register ./spec"
   },
   "nodemonConfig": {
     "watch": [
