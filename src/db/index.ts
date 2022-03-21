@@ -9,7 +9,7 @@ const options: DataSourceOptions = {
     "synchronize": process.env.NODE_ENV==="production"?false:true,
     "logging": process.env.NODE_ENV==="production"?false:true,
     "entities": [
-        "src/entity/**/*.entity.{ts,js}"
+        "src/entity/**/*.{ts,js}"
     ],
     "migrations": [
        "src/migration/**/*.{ts,js}"
