@@ -2,6 +2,7 @@
 # MMK ASSIGNMENT SOLUTION
 ---
 > A technical interview solution to mmk backend role
+> NOTE : The env are public which on a normal  note will not happen to be but given the submission time frame are so to ensure proper deployment
 > 
 You can get the shared collection file via [postman](https://www.getpostman.com/collections/04990c94f1aa44edae01).
 Taking a stern look into the problem statement provided by the mymoneykarma interviewer. I was told to build an application that support caching , rate-limiting and almost others .
