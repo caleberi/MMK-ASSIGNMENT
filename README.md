@@ -32,7 +32,7 @@ cd MMK-ASSIGNMENT
 npm install
 
 ```
-Rename the `src/config.env.example` to `.env` and customize it to your local machines specifications.
+Add the `src/config/**/*.env`  to customize it to your local machines specifications.
 **Note**: `DATABASE_URL` will not be created automatically and would need to ba manually created.
 
 Run `npm run make:serve` to start the local server.
