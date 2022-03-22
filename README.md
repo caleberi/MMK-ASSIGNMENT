@@ -42,6 +42,7 @@ Run `npm run make:serve` to start the local server.
 - `npm run build`: Run build
 - `npm run lint`: To  lint the project
 - `npm run start`: Run the project locally
+- `npm run test`: Test the project locally
 
 check the `package.json` for more reference.
 ## API Reference/Documentation
